@@ -195,3 +195,41 @@
 
 // echo "$number1, $number2, $number3, $vidurkis <br>";
 // echo 'Triju skaiciu aritmetinis vidurkis yra:' .$rez;
+
+//10 uzduotis
+
+$valandos = rand(1,24);
+$minutes = rand(1,59);
+$sekundes = rand(1,59);
+$number = rand(0,300);
+
+echo "Laikrodis: $valandos:$minutes:$sekundes";
+
+echo '<br>';
+// echo $number;
+$isMin = floor($number / 60);
+$liekana = $number % 60;
+echo '<br>';
+echo $liekana;
+echo '<br>';
+echo $isMin;
+
+if($isMin > 0){
+    $minutes = $isMin + $minutes;
+    if($minutes <= 59){
+   }else{
+    $minutes = $minutes - 59;
+    $valandos++;
+   }
+}
+
+if($sekundes <= 59){
+    $sekundes += $liekana;
+    if($sekundes <=59){
+    }else{
+    $sekundes = $sekundes - 59;
+    $minutes++;
+    }
+}
+echo '<br>';
+echo "Laikrodis: $valandos:$minutes:$sekundes";
