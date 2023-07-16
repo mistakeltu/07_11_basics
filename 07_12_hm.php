@@ -206,7 +206,7 @@ $number = rand(0,300);
 echo "Laikrodis: $valandos:$minutes:$sekundes";
 
 echo '<br>';
-// echo $number;
+echo $number;
 $isMin = floor($number / 60);
 $liekana = $number % 60;
 echo '<br>';
