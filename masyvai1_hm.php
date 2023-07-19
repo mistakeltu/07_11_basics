@@ -176,45 +176,244 @@
 // echo '<pre>';
 // print_r($masyvas);
 
-//3
-$kiekA=0;
-$kiekB=0;
-$kiekC=0;
-$kiekD=0;
-$sortinimas =[];
-$masyvas = [];
+//3-4
+// $kiekA=0;
+// $kiekB=0;
+// $kiekC=0;
+// $kiekD=0;
+// $sortinimas =[];
+// $masyvas = [];
 
-foreach(range(1,200) as $key => $value ){
-    $raide = range('A', 'D');
-    $value = $raide[rand(0,3)];
-    echo '<pre>';
-    print_r(" $key ---> $value |");
-    $masyvas[$key] = $value;
+// foreach(range(1,200) as $key => $value ){
+//     $raide = range('A', 'D');
+//     $value = $raide[rand(0,3)];
+//     echo '<pre>';
+//     print_r(" $key ---> $value |");
+//     $masyvas[$key] = $value;
+//     sort($masyvas);
 
-    if($value === 'A'){
-        $kiekA++;
-    }else if($value === 'B'){
-        $kiekB++;
-    }else if($value === 'C'){
-        $kiekC++;
-    }else{
-        $kiekD++;
-    }
+//     if($value === 'A'){
+//         $kiekA++;
+//     }else if($value === 'B'){
+//         $kiekB++;
+//     }else if($value === 'C'){
+//         $kiekC++;
+//     }else{
+//         $kiekD++;
+//     }
 
-}
-
-
-// foreach (range(1,200) as $key => $value) {
-//     $masyvas1 = $masyvas;
 // }
 
-echo '<br>';
-echo $kiekA;
-echo '<br>';
-echo $kiekB;
-echo '<br>';
-echo $kiekC;
-echo '<br>';
-echo $kiekD;
-echo '<br>';
-print_r($sortinimas);
+// echo '<br>';
+// echo $kiekA;
+// echo '<br>';
+// echo $kiekB;
+// echo '<br>';
+// echo $kiekC;
+// echo '<br>';
+// echo $kiekD;
+// echo '<br>';
+// print_r($masyvas);
+
+//5
+// $pirmas = '';
+// $antras = '';
+// $trecias = '';
+// $lygu = 0;
+// $skirtingi = 0;
+// $ats = '';
+// $ats2 = '';
+
+// foreach(range(1,3) as $key => $value ){
+
+//     foreach(range(1,3) as $key => $value ){
+//         $raide = range('A', 'D');
+//         $value = $raide[rand(0,3)];
+//         echo '<pre>';
+//         print_r(" $key ---> $value ");
+
+//         if($key === 0){
+//             $pirmas .= $value;
+//         }else if($key === 1){
+//             $antras .= $value;
+//         }else{
+//             $trecias .= $value;
+//         }
+//     }
+//     if($pirmas === $antras || $antras === $trecias || $pirmas === $trecias){
+//         $lygu++;
+//         if($lygu === 3){
+//             $ats = 'Yra vienodu';
+//         }else if($lygu === 0 || $lygu === 1 || $lygu === 2){
+//             $ats2 = 'Visi skirtingi';
+//         }
+//     }
+
+// }
+// echo '<br>';
+// echo $pirmas;
+// echo '<br>';
+// echo $antras;
+// echo '<br>';
+// echo $trecias;
+// echo '<br>';
+// echo $lygu;
+// echo '<br>';
+// echo $ats;
+// echo '<br>';
+// echo $ats2;
+
+//6
+
+// $masyvas1 = [];
+// $masyvas2 = [];
+
+// foreach (range(1, 100) as $key => $value) {
+//     $randomNumber = rand(100, 999);
+    
+//     while (in_array($randomNumber, $masyvas1)) {
+//         $randomNumber = rand(100, 999);
+//     }
+    
+//     $masyvas1[] = $randomNumber;
+// }
+
+// foreach (range(1, 100) as $key => $value) {
+//     $randomNumber = rand(100, 999);
+    
+//     while (in_array($randomNumber, $masyvas2)) {
+//         $randomNumber = rand(100, 999);
+//     }
+    
+//     $masyvas2[] = $randomNumber;
+// }
+
+// echo '<br>';
+// echo '<pre>';
+// print_r($masyvas1);
+// echo '<br>';
+// echo '<pre>';
+// print_r($masyvas2);
+
+//7
+
+// $masyvas1 = [];
+// $masyvas2 = [];
+
+// foreach (range(1, 100) as $key => $value) {
+//     $randomNumber = rand(100, 999);  
+//     $masyvas1[] = $randomNumber;
+// }
+// foreach (range(1, 100) as $key => $value) {
+//     $randomNumber = rand(100, 999);
+//     $masyvas2[] = $randomNumber;
+// }
+
+// $masyvas3 = [];
+// foreach($masyvas1 as $key => $value){
+//     if(!in_array($value, $masyvas2)){
+//         $masyvas3[$key] = $value;
+//     }    
+// }
+
+// echo '<br>';
+// echo '<pre>';
+// print_r($masyvas1);
+// echo '<br>';
+// echo '<pre>';
+// print_r($masyvas2);
+// echo '<pre>';
+// print_r($masyvas3);
+
+//8
+
+// $masyvas1 = [];
+// $masyvas2 = [];
+
+// foreach (range(1, 100) as $key => $value) {
+//     $randomNumber = rand(100, 999);  
+//     $masyvas1[] = $randomNumber;
+// }
+// foreach (range(1, 100) as $key => $value) {
+//     $randomNumber = rand(100, 999);
+//     $masyvas2[] = $randomNumber;
+// }
+
+// $masyvas3 = [];
+// foreach($masyvas1 as $key => $value){
+//     if(in_array($value, $masyvas2)){
+//         $masyvas3[$key] = $value;
+//     }    
+// }
+
+// echo '<br>';
+// echo '<pre>';
+// print_r($masyvas1);
+// echo '<br>';
+// echo '<pre>';
+// print_r($masyvas2);
+// echo '<pre>';
+// print_r($masyvas3);
+
+//9
+
+// $masyvas1 = [];
+// $masyvas2 = [];
+
+// foreach (range(1, 100) as $key => $value) {
+//     $randomNumber = rand(100, 999);  
+//     $masyvas1[] = $randomNumber;
+// }
+// foreach (range(1, 100) as $key => $value) {
+//     $randomNumber = rand(100, 999);
+//     $masyvas2[] = $randomNumber;
+// }
+
+// $masyvas3 = [];
+// foreach($masyvas1 as $key => $indexas){ 
+//     $masyvas3[$indexas] = $masyvas2[$key];
+// }
+
+// echo '<br>';
+// echo '<pre>';
+// print_r($masyvas1);
+// echo '<br>';
+// echo '<pre>';
+// print_r($masyvas2);
+// echo '<pre>';
+// print_r($masyvas3);
+
+//10
+
+$masyvas = [];
+$suma = 0;
+foreach(range(1,10) as $key => $value){
+    if($key < 2){
+        $randomNumber = rand(5,25);
+        $masyvas[] = $randomNumber;
+        $suma += $randomNumber;
+    }else if($key === 2){
+        $masyvas[] = $suma;
+    }else if($key <= 3){
+        $masyvas[] = 2 * $suma;
+    }else if($key <= 4){
+        $masyvas[] = 4 * $suma;
+    }else if($key <= 5){
+        $masyvas[] = 8 * $suma;
+    }else if($key <= 6){
+        $masyvas[] = 16 * $suma;
+    }else if($key <= 7){
+        $masyvas[] = 32 * $suma;
+    }else if($key <= 8){
+        $masyvas[] = 48 * $suma;
+    }else if($key <= 9){
+        $masyvas[] = 72 * $suma;
+    }
+    else{
+        $randomNumber = $key + 1;
+        $masyvas[] = $randomNumber;
+    }
+}
+
+echo '<pre>';
+print_r($masyvas);
