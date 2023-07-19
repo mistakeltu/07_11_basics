@@ -177,12 +177,44 @@
 // print_r($masyvas);
 
 //3
+$kiekA=0;
+$kiekB=0;
+$kiekC=0;
+$kiekD=0;
+$sortinimas =[];
+$masyvas = [];
 
-foreach(range('A', 'D') as $key => $value ){
-    $masyvas[] = $value;
+foreach(range(1,200) as $key => $value ){
+    $raide = range('A', 'D');
+    $value = $raide[rand(0,3)];
+    echo '<pre>';
+    print_r(" $key ---> $value |");
+    $masyvas[$key] = $value;
+
+    if($value === 'A'){
+        $kiekA++;
+    }else if($value === 'B'){
+        $kiekB++;
+    }else if($value === 'C'){
+        $kiekC++;
+    }else{
+        $kiekD++;
+    }
+
 }
 
 
+// foreach (range(1,200) as $key => $value) {
+//     $masyvas1 = $masyvas;
+// }
 
-echo '<pre>';
-print_r($masyvas);
+echo '<br>';
+echo $kiekA;
+echo '<br>';
+echo $kiekB;
+echo '<br>';
+echo $kiekC;
+echo '<br>';
+echo $kiekD;
+echo '<br>';
+print_r($sortinimas);
