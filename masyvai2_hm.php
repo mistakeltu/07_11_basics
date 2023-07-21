@@ -2,14 +2,171 @@
 
 // Sugeneruokite masyvą iš 10 elementų, kurio elementai būtų masyvai iš 5 elementų su reikšmėmis nuo 5 iki 25.
 
+// $masyvas = [];
+// foreach(range(1,10) as $_){
+//     $tarpinis = [];
+//     foreach(range(1,5) as $_){
+//         $tarpinis[] = rand(5,25);
+//     }
+//     $masyvas[] = $tarpinis;
+// }
+
+// echo '<pre>';
+// print_r($masyvas);
+
+//a) Suskaičiuokite kiek masyve yra elementų didesnių už 10;
+
+// $masyvas = [];
+// $kiek10 = 0;
+// foreach(range(1,10) as $_){
+//     $tarpinis = [];
+//     foreach(range(1,5) as $key => $value){
+//         $tarpinis[] = rand(5,25);
+//         if($tarpinis[$key] > 10){
+//             $kiek10++;
+//         }
+//     }
+//     $masyvas[] = $tarpinis;
+// }
+
+// echo '<pre>';
+// print_r($masyvas);
+// echo '<br>';
+// echo $kiek10;
+
+//b) Raskite didžiausio elemento reikšmę;
+
+// $masyvas = [];
+// $max = 0;
+// foreach(range(1,10) as $_){
+//     $tarpinis = [];
+//     foreach(range(1,5) as $key => $value){
+//         $tarpinis[] = rand(5,25);
+//         if($max < $tarpinis[$key]){
+//             $max = $tarpinis[$key];
+//         }
+//     }
+//     $masyvas[] = $tarpinis;
+// }
+
+// echo '<pre>';
+// print_r($masyvas);
+// echo '<br>';
+// echo $max;
+
+//c) Suskaičiuokite kiekvieno antro lygio masyvų su vienodais indeksais sumas (t.y. suma reikšmių turinčių indeksą 0, 1 ir t.t.)
+
+// $masyvas = [];
+// $sumOfOnes = 0;
+// $sumOfTwos = 0;
+// $sumOfThrees = 0;
+// $sumOfFours = 0;
+// $sumOfZeros = 0;
+
+// foreach(range(1,10) as $_){
+//     $tarpinis = [];
+//     foreach(range(1,5) as $key => $value){
+//         $tarpinis[] = rand(0,1);
+//         if($key === 0){
+//             $sumOfZeros += $tarpinis[$key];
+//         }
+//         if($key === 1){
+//             $sumOfOnes += $tarpinis[$key];
+//         }
+//         if($key === 2){
+//             $sumOfTwos += $tarpinis[$key];
+//         }
+//         if($key === 3){
+//             $sumOfThrees += $tarpinis[$key];
+//         }
+//         if($key === 4){
+//             $sumOfFours += $tarpinis[$key];
+//         }
+//     }
+//     $masyvas[] = $tarpinis;
+// }
+
+// echo '<pre>';
+// print_r($masyvas);
+// echo '<br>';
+// echo $sumOfOnes;
+// echo '<br>';
+// echo $sumOfTwos;
+// echo '<br>';
+// echo $sumOfThrees;
+// echo '<br>';
+// echo $sumOfFours;
+// echo '<br>';
+// echo $sumOfZeros;
+
+//d) Visus antro lygio masyvus “pailginkite” iki 7 elementų
+
+// $masyvas = [];
+
+// foreach(range(0,1) as $_){
+//     $mini[] = rand(0,1);   
+// }
+
+// foreach(range(1,10) as $key => $value){
+//     $tarpinis = [];
+//     foreach(range(1,5) as $key => $value){
+//         $tarpinis[] = rand(5,25);
+//     }
+//     array_push($tarpinis, rand(5,25), rand(5,25));
+//     $masyvas[] = $tarpinis;
+// }
+
+
+// echo '<pre>';
+// print_r($masyvas);
+// echo '<br>';
+
+//e) Suskaičiuokite kiekvieno iš antro lygio masyvų elementų sumą atskirai ir sumas panaudokite kaip reikšmes sukuriant naują masyvą. T.y. pirma naujo masyvo reikšmė turi būti lygi mažesnio masyvo, turinčio indeksą 0 dideliame masyve, visų elementų sumai 
+
+// $masyvas = [];
+// $sums = [];
+
+// foreach(range(1,10) as $key => $value){
+//     $tarpinis = [];
+//     foreach(range(1,5) as $key => $value){
+//         $tarpinis[] = rand(5,25);
+//     }
+//     $masyvas[] = $tarpinis;
+// }
+
+// foreach($masyvas as $key => $miniArr){
+//     $suma = 0;
+//     foreach($miniArr as $numbers){
+//         $suma += $numbers;
+//     }
+//     $sums[] = $suma;
+// }
+
+
+
+// echo '<pre>';
+// print_r($masyvas);
+// echo '<br>';
+// // var_dump($suma);
+// echo '<br>';
+// echo '<pre>';
+// print_r($sums);
+
+//3) Sukurkite masyvą iš 10 elementų. Kiekvienas masyvo elementas turi būti masyvas su atsitiktiniu kiekiu nuo 2 iki 20 elementų. Elementų reikšmės atsitiktinai parinktos raidės iš intervalo A-Z. Išrūšiuokite antro lygio masyvus pagal abėcėlę (t.y. tuos kur su raidėm).
+
 $masyvas = [];
-foreach(range(1,10) as $_){
+$letters = range('A', 'Z');
+
+foreach(range(1,10) as $key => $value){
     $tarpinis = [];
-    foreach(range(1,5) as $_){
-        $tarpinis[] = rand(5,25);
+    foreach(range(rand(2,20), rand(2,20)) as $key => $value){
+        $tarpinis[] = $letters[rand(0,25)];
+        sort($tarpinis);
     }
     $masyvas[] = $tarpinis;
 }
 
 echo '<pre>';
 print_r($masyvas);
+
+//4) Išrūšiuokite trečio uždavinio pirmo lygio masyvą taip, kad elementai kurių masyvai trumpiausi eitų pradžioje. Masyvai kurie turi bent vieną “K” raidę, visada būtų didžiojo masyvo visai pradžioje.

@@ -61,7 +61,7 @@ for ($i = 0; $i < 100; $i++) {
 }
 echo '</h1>';
 
-//5 uzduotis
+//6 uzduotis
 //a)
 // for($i = 0; $i < 3; $i++){
 //     $moneta = rand(0,1);
