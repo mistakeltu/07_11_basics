@@ -154,19 +154,124 @@
 
 //3) Sukurkite masyvą iš 10 elementų. Kiekvienas masyvo elementas turi būti masyvas su atsitiktiniu kiekiu nuo 2 iki 20 elementų. Elementų reikšmės atsitiktinai parinktos raidės iš intervalo A-Z. Išrūšiuokite antro lygio masyvus pagal abėcėlę (t.y. tuos kur su raidėm).
 
-$masyvas = [];
-$letters = range('A', 'Z');
+// $masyvas = [];
+// $letters = range('A', 'Z');
 
-foreach(range(1,10) as $key => $value){
+// foreach(range(1,10) as $key => $value){
+//     $tarpinis = [];
+//     foreach(range(rand(2,20), rand(2,20)) as $key => $value){
+//         $tarpinis[] = $letters[rand(0,25)];
+//         sort($tarpinis);
+//     }
+//     $masyvas[] = $tarpinis;
+// }
+
+// echo '<pre>';
+// print_r($masyvas);
+
+//4) Išrūšiuokite trečio uždavinio pirmo lygio masyvą taip, kad elementai kurių masyvai trumpiausi eitų pradžioje. Masyvai kurie turi bent vieną “K” raidę, visada būtų didžiojo masyvo visai pradžioje.
+
+// $masyvas = [];
+// $letters = range('A', 'Z');
+// $sortedMasyvas = [];
+
+// foreach(range(1,10) as $key => $value){
+//     $tarpinis = [];
+//     foreach(range(rand(2,20), rand(2,20)) as $key => $value){
+//         $tarpinis[] = $letters[rand(0,25)];
+//     }
+//     sort($tarpinis);
+//     $masyvas[] = $tarpinis;
+//     sort($masyvas);
+// }
+
+
+// foreach ($masyvas as $key => $arr) {
+//     $hasK = false;
+//     foreach ($arr as $raides) {
+//         if ($raides === 'K') {
+//             $hasK = true;
+//             break;
+//         }
+//     }
+
+//     if ($hasK) {
+//         array_unshift($sortedMasyvas, $arr); 
+//     } else {
+//         $sortedMasyvas[] = $arr;
+//     }
+// }
+
+// foreach ($sortedMasyvas as $key => $arr) {
+//     echo '<pre>';
+//     print_r($arr);
+// }
+// echo '<pre>';
+// print_r($arr);
+// echo '<br>';
+// echo '<pre>';
+// print_r($minToMax);
+
+//5) Sukurkite masyvą iš 30 elementų. Kiekvienas masyvo elementas yra masyvas [user_id => xxx, place_in_row => xxx] user_id atsitiktinis unikalus skaičius nuo 1 iki 1000000, place_in_row atsitiktinis skaičius nuo 0 iki 100. 
+
+// $masyvas = [];
+
+
+// foreach(range(0,30) as $key => $value){
+//     $tarpinis = [];
+//     foreach(range(0,1) as $key => $value){
+//         $tarpinis[] = [
+//             'user_id' => rand(1,1000000), 
+//             'place_in_row' => rand(1,100)
+//         ];
+//     }
+//     $masyvas[] = $tarpinis;
+// }
+
+// echo '<pre>';
+// print_r($masyvas);
+// echo '<br>';
+
+//6) Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka.
+
+$masyvas = [];
+
+foreach(range(0,30) as $key => $value){
     $tarpinis = [];
-    foreach(range(rand(2,20), rand(2,20)) as $key => $value){
-        $tarpinis[] = $letters[rand(0,25)];
-        sort($tarpinis);
+    foreach(range(0,1) as $key => $value){
+        $user_id = rand(1,1000000);
+        $place_in_row = rand(1,100);
+        $tarpinis[] = [
+            'user_id' => $user_id, 
+            'place_in_row' => $place_in_row
+        ];
     }
     $masyvas[] = $tarpinis;
 }
 
-echo '<pre>';
-print_r($masyvas);
+$user_ids = [];
 
-//4) Išrūšiuokite trečio uždavinio pirmo lygio masyvą taip, kad elementai kurių masyvai trumpiausi eitų pradžioje. Masyvai kurie turi bent vieną “K” raidę, visada būtų didžiojo masyvo visai pradžioje.
+foreach ($masyvas as $key => $value) {
+    foreach ($value as $key => $masyvs) {
+        $user_ids[] = $masyvs['user_id'];
+    }
+}
+
+sort($user_ids);
+
+$sorted_masyvas = [];
+foreach ($user_ids as $user_id) {
+    foreach ($masyvas as $value) {
+        foreach ($value as $masyvs) {
+            if ($masyvs['user_id'] === $user_id) {
+                $sorted_masyvas[] = $masyvs;
+                break;
+            }
+        }
+    }
+}
+
+foreach ($sorted_masyvas as $key => $value) {
+    echo '<pre>';
+    print_r($value);
+}
