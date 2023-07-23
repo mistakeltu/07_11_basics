@@ -300,11 +300,39 @@ foreach ($place_in_rows as $place_in_row) {
 
 //b)
 
-// $sorted_Masyvas = array_merge($sorted_user_ids, $sorted_place_in_row);
+$sorted_Masyvas = array_merge($sorted_user_ids, $sorted_place_in_row);
 
 // foreach ($sorted_Masyvas as $key => $value) {
-    echo '<pre>';
-    print_r($sorted_place_in_row);
-    echo '<pre>';
-    print_r($sorted_user_ids);
+    // echo '<pre>';
+    // print_r($sorted_place_in_row);
+    // echo '<pre>';
+    // print_r($sorted_user_ids);
 // }
+
+//7) Prie 6 uždavinio masyvo antro lygio masyvų pridėkite dar du elementus: name ir surname. Elementus užpildykite stringais iš atsitiktinai sugeneruotų lotyniškų raidžių, kurių ilgiai nuo 5 iki 15.
+
+// foreach ($sorted_place_in_row as $key => $value) {
+//     echo '<pre>';
+//     print_r($value);
+// }
+$naujas = [];
+
+foreach ($masyvas as $key => $value) {
+    foreach(range(0,1) as $key => $value){
+        $labas1 = rand(1,1000000);
+        $labas2 = rand(1,100);
+        $naujas[] = [
+            'labas' => $labas1, 
+            'labas2' => $labas2
+        ];
+    }
+    $masyvas[] = $naujas;
+}
+
+$duNauji = [];
+
+$duNauji = array_merge($naujas, $sorted_place_in_row);
+
+
+echo '<pre>';
+print_r($masyvas);
