@@ -233,6 +233,7 @@
 // echo '<br>';
 
 //6) Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka.
+//a)
 
 $masyvas = [];
 
@@ -250,6 +251,7 @@ foreach(range(0,30) as $key => $value){
 }
 
 $user_ids = [];
+$place_in_rows = [];
 
 foreach ($masyvas as $key => $value) {
     foreach ($value as $key => $masyvs) {
@@ -257,21 +259,52 @@ foreach ($masyvas as $key => $value) {
     }
 }
 
+foreach ($masyvas as $key => $value) {
+    foreach ($value as $key => $masyvs) {
+        $place_in_rows[] = $masyvs['place_in_row'];
+    }
+}
+
+rsort($place_in_rows);
 sort($user_ids);
 
-$sorted_masyvas = [];
+$sorted_user_ids = [];
 foreach ($user_ids as $user_id) {
     foreach ($masyvas as $value) {
         foreach ($value as $masyvs) {
             if ($masyvs['user_id'] === $user_id) {
-                $sorted_masyvas[] = $masyvs;
+                $sorted_user_ids[] = $masyvs;
                 break;
             }
         }
     }
 }
 
-foreach ($sorted_masyvas as $key => $value) {
-    echo '<pre>';
-    print_r($value);
+$sorted_place_in_row = [];
+foreach ($place_in_rows as $place_in_row) {
+    foreach ($masyvas as $value) {
+        foreach ($value as $masyvs2) {
+            if ($masyvs2['place_in_row'] === $place_in_row) {
+                $sorted_place_in_row[] = $masyvs2;
+                break;
+            }
+        }
+    }
 }
+
+// foreach ($place_in_rows as $key => $value) {
+//     echo '<pre>';
+//     print_r($value);
+// }
+
+
+//b)
+
+// $sorted_Masyvas = array_merge($sorted_user_ids, $sorted_place_in_row);
+
+// foreach ($sorted_Masyvas as $key => $value) {
+    echo '<pre>';
+    print_r($sorted_place_in_row);
+    echo '<pre>';
+    print_r($sorted_user_ids);
+// }
