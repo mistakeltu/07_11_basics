@@ -235,62 +235,62 @@
 //6) Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka.
 //a)
 
-$masyvas = [];
+// $masyvas = [];
 
-foreach(range(0,30) as $key => $value){
-    $tarpinis = [];
-    foreach(range(0,1) as $key => $value){
-        $user_id = rand(1,1000000);
-        $place_in_row = rand(1,100);
-        $tarpinis[] = [
-            'user_id' => $user_id, 
-            'place_in_row' => $place_in_row
-        ];
-    }
-    $masyvas[] = $tarpinis;
-}
+// foreach (range(0, 30) as $key => $value) {
+//     $tarpinis = [];
+//     foreach (range(0, 1) as $key => $value) {
+//         $user_id = rand(1, 1000000);
+//         $place_in_row = rand(1, 100);
+//         $tarpinis[] = [
+//             'user_id' => $user_id,
+//             'place_in_row' => $place_in_row
+//         ];
+//     }
+//     $masyvas[] = $tarpinis;
+// }
 
-$user_ids = [];
-$place_in_rows = [];
+// $user_ids = [];
+// $place_in_rows = [];
 
-foreach ($masyvas as $key => $value) {
-    foreach ($value as $key => $masyvs) {
-        $user_ids[] = $masyvs['user_id'];
-    }
-}
+// foreach ($masyvas as $key => $value) {
+//     foreach ($value as $key => $masyvs) {
+//         $user_ids[] = $masyvs['user_id'];
+//     }
+// }
 
-foreach ($masyvas as $key => $value) {
-    foreach ($value as $key => $masyvs) {
-        $place_in_rows[] = $masyvs['place_in_row'];
-    }
-}
+// foreach ($masyvas as $key => $value) {
+//     foreach ($value as $key => $masyvs) {
+//         $place_in_rows[] = $masyvs['place_in_row'];
+//     }
+// }
 
-rsort($place_in_rows);
-sort($user_ids);
+// rsort($place_in_rows);
+// sort($user_ids);
 
-$sorted_user_ids = [];
-foreach ($user_ids as $user_id) {
-    foreach ($masyvas as $value) {
-        foreach ($value as $masyvs) {
-            if ($masyvs['user_id'] === $user_id) {
-                $sorted_user_ids[] = $masyvs;
-                break;
-            }
-        }
-    }
-}
+// $sorted_user_ids = [];
+// foreach ($user_ids as $user_id) {
+//     foreach ($masyvas as $value) {
+//         foreach ($value as $masyvs) {
+//             if ($masyvs['user_id'] === $user_id) {
+//                 $sorted_user_ids[] = $masyvs;
+//                 break;
+//             }
+//         }
+//     }
+// }
 
-$sorted_place_in_row = [];
-foreach ($place_in_rows as $place_in_row) {
-    foreach ($masyvas as $value) {
-        foreach ($value as $masyvs2) {
-            if ($masyvs2['place_in_row'] === $place_in_row) {
-                $sorted_place_in_row[] = $masyvs2;
-                break;
-            }
-        }
-    }
-}
+// $sorted_place_in_row = [];
+// foreach ($place_in_rows as $place_in_row) {
+//     foreach ($masyvas as $value) {
+//         foreach ($value as $masyvs2) {
+//             if ($masyvs2['place_in_row'] === $place_in_row) {
+//                 $sorted_place_in_row[] = $masyvs2;
+//                 break;
+//             }
+//         }
+//     }
+// }
 
 // foreach ($place_in_rows as $key => $value) {
 //     echo '<pre>';
@@ -300,39 +300,146 @@ foreach ($place_in_rows as $place_in_row) {
 
 //b)
 
-$sorted_Masyvas = array_merge($sorted_user_ids, $sorted_place_in_row);
+// $sorted_Masyvas = array_merge($sorted_user_ids, $sorted_place_in_row);
 
 // foreach ($sorted_Masyvas as $key => $value) {
-    // echo '<pre>';
-    // print_r($sorted_place_in_row);
-    // echo '<pre>';
-    // print_r($sorted_user_ids);
+// echo '<pre>';
+// print_r($sorted_place_in_row);
+// echo '<pre>';
+// print_r($sorted_user_ids);
 // }
 
 //7) Prie 6 uždavinio masyvo antro lygio masyvų pridėkite dar du elementus: name ir surname. Elementus užpildykite stringais iš atsitiktinai sugeneruotų lotyniškų raidžių, kurių ilgiai nuo 5 iki 15.
 
-// foreach ($sorted_place_in_row as $key => $value) {
-//     echo '<pre>';
-//     print_r($value);
-// }
-$naujas = [];
 
-foreach ($masyvas as $key => $value) {
-    foreach(range(0,1) as $key => $value){
-        $labas1 = rand(1,1000000);
-        $labas2 = rand(1,100);
-        $naujas[] = [
-            'labas' => $labas1, 
-            'labas2' => $labas2
+// foreach ($masyvas as $key => $value) {
+//     foreach ($value as $key => $arr) {
+//         $raides = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+//         $length = strlen($raides);
+//         $random = '';
+
+//         for ($i = 0; $i < rand(5, 15); $i++) {
+//             $random .= $raides[rand(0, $length - 1)];
+//         }
+//         $nauji = [
+//             'name' => $random,
+//             'surname' => $random,
+//         ];
+//         $arr['name'] = $nauji['name'];
+//         $arr['surname'] = $nauji['surname'];
+//     }
+//     echo '<pre>';
+//     print_r($arr);
+// }
+
+//8)Sukurkite masyvą iš 10 elementų. Masyvo reikšmes užpildykite pagal taisyklę: generuokite skaičių nuo 0 iki 5. Ir sukurkite tokio ilgio masyvą. Jeigu reikšmė yra 0 masyvo nekurkite. Antro lygio masyvo reikšmes užpildykite atsitiktiniais skaičiais nuo 0 iki 10. Ten kur masyvo nekūrėte reikšmę nuo 0 iki 10 įrašykite tiesiogiai.
+
+// $masyvas = [];
+// foreach(range(1,10) as $key => $value){
+//     $tarpinis = [];
+//     $skaicius = rand(0,5);
+//     if($skaicius !== 0){
+//         foreach(range(0, $skaicius) as $key => $value){
+//                 $tarpinis[] = rand(0,10);
+//         }
+//     }else{
+//         $tarpinis[] = rand(0,10);
+//         // break;
+//     }
+//     $masyvas[] = $tarpinis;
+// }
+
+// echo'<pre>';
+// print_r($masyvas);
+
+//9)Paskaičiuokite 8 uždavinio masyvo visų reikšmių sumą ir išrūšiuokite masyvą taip, kad pirmiausiai eitų mažiausios masyvo reikšmės arba jeigu reikšmė yra masyvas, to masyvo reikšmių sumos.
+
+// $masyvas = [];
+// foreach(range(1,10) as $key => $value){
+//     $tarpinis = [];
+//     $skaicius = rand(0,5);
+//     if($skaicius !== 0){
+//         foreach(range(0, $skaicius) as $key => $value){
+//                 $tarpinis[] = rand(0,10);
+//         }
+//     }else{
+//         $tarpinis[] = rand(0,10);
+//         // break;
+//     }
+//     $masyvas[] = $tarpinis;
+// }
+
+// echo'<pre>';
+// print_r($masyvas);
+
+// $sort = [];
+// foreach ($masyvas as $key => $eilute) {
+//     $suma = 0;
+//     if (is_array($eilute)) {
+//         foreach ($eilute as $value) {
+//             $suma += $value;
+//         }
+//     } else {
+//         $suma += $eilute;
+//     }
+//     $sort[] = $suma;
+//     rsort($sort);
+// }
+
+
+// echo '<pre>';
+// print_r($sort);
+
+//10)Sukurkite masyvą iš 10 elementų. Jo reikšmės masyvai iš 10 elementų. Antro lygio masyvų reikšmės masyvai su dviem elementais value ir color. Reikšmė value vienas iš atsitiktinai parinktų simbolių: #%+*@裡, o reikšmė color atsitiktinai sugeneruota spalva formatu: #XXXXXX. Pasinaudoję masyvų atspausdinkite “kvadratą” kurį sudarytų masyvo reikšmės nuspalvintos spalva color.
+
+$masyvas = [];
+
+foreach (range(1, 10) as $key => $value) {
+    $tarpinis = [];
+    foreach (range(1, 10) as $key => $value) {
+        $random = '#%+*@裡';
+        $length = strlen($random);
+        $symbol = '';
+
+        for ($i = 0; $i < 6; $i++) {
+            $symbol = $random[rand(0, $length - 1)];
+        }
+
+        $spalva = rand(0, 1000000);
+        $tarpinis = [
+            'value' => $symbol,
+            'color' => $symbol . $spalva,
         ];
+
     }
-    $masyvas[] = $naujas;
+    $masyvas[] = $tarpinis;
 }
 
-$duNauji = [];
+// foreach($masyvas as $key => $value){
+//     // foreach($value as $key => $arr){
 
-$duNauji = array_merge($naujas, $sorted_place_in_row);
+//         // echo '<pre>';
+//         // print_r($value['value']);
+//     // }
 
+//     if($value['value'] === '#'){
+//         $tarpinis = [
+//             'value' => $symbol,
+//             'color' => $symbol . $spalva,
+//         ];
+//     }
+// }
 
 echo '<pre>';
 print_r($masyvas);
+
+echo '<h1 style="line-height:16px;">';
+for ($i = 0; $i < 10; $i++) {
+    echo '<div>';
+    for ($i2 = 0; $i2 < 10; $i2++) {
+            echo '<span style="color:' . $tarpinis['color'] . ';">*</span>';
+        }
+    echo '</div>';
+
+}
+echo '</h1>';
