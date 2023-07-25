@@ -23,10 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'name' => $_POST['name'],
             'id' => uniqid(),
         ];
+        $message = 'Animal Added';
     }
 
     file_put_contents(__DIR__ . '/animals.json', json_encode($animals));
-    header('Location: http://localhost/iguanos/015/');
+    header('Location: http://localhost/bitas/07_11_basics/webm/07_25_index.php');
     die;
 }
 
@@ -39,17 +40,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>ZOO</title>
 </head>
 
 <body>
     <h1>ZOO</h1>
+    <div class="message">
+        <?= $message ?>
+    </div>
     <ul>
         <?php if (!empty($animals)) : ?>
             <?php foreach ($animals as $animal) : ?>
                 <li>
                     <?= $animal['name'] ?>
-                    <form action="http://localhost/bitas/07_11_basics/webm/07_25_index.php?action=delete&id=<? $animal['id'] ?>" method="post">
+                    <form action="http://localhost/bitas/07_11_basics/webm/07_25_index.php?action=delete&id=<?= $animal['id'] ?>" method="post">
                         <button type="submit">Delete</button>
                     </form>
                 </li>
