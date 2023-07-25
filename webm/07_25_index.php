@@ -26,6 +26,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $message = 'Animal Added';
     }
 
+    if ($_GET['action'] == 'edit') {
+        foreach ($animals as $key => $animal) {
+            if ($animal['id'] == $_GET['id']) {
+                $animals[$key]['name'] = $_POST['name'];
+                break;
+            }
+        }
+    }
+
     file_put_contents(__DIR__ . '/animals.json', json_encode($animals));
     header('Location: http://localhost/bitas/07_11_basics/webm/07_25_index.php');
     die;
@@ -53,10 +62,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php if (!empty($animals)) : ?>
             <?php foreach ($animals as $animal) : ?>
                 <li>
-                    <?= $animal['name'] ?>
+                    <h2><?= $animal['name'] ?></h2>
                     <form action="http://localhost/bitas/07_11_basics/webm/07_25_index.php?action=delete&id=<?= $animal['id'] ?>" method="post">
                         <button type="submit">Delete</button>
                     </form>
+                    <span>Edit</span>
+                    <input type="checkbox" name="edit">
+                    <fieldset class="edit">
+                        <legend>Edit animal</legend>
+                        <form action="http://localhost/bitas/07_11_basics/webm/07_25_index.php?action=edit&id=<?= $animal['id'] ?>" method="post">
+                            <input type="text" name="name" value="<?= $animal['name'] ?>">
+                            <button type="submit">Save</button>
+                        </form>
+                    </fieldset>
                 </li>
             <?php endforeach ?>
         <?php else : ?>
