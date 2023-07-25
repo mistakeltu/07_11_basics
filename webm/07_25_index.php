@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $animals = [];
 if (file_exists(__DIR__ . '/animals.json')) {
@@ -16,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 break;
             }
         }
+        $_SESSION['msg'] = 'Animal Deleted';
     }
 
     if ($_GET['action'] == 'create') {
@@ -23,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'name' => $_POST['name'],
             'id' => uniqid(),
         ];
-        $message = 'Animal Added';
+        $_SESSION['msg'] = 'Animal Added';
     }
 
     if ($_GET['action'] == 'edit') {
@@ -33,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 break;
             }
         }
+        $_SESSION['msg'] = 'Animal Edited';
     }
 
     file_put_contents(__DIR__ . '/animals.json', json_encode($animals));
@@ -41,6 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 //GET
+$message = $_SESSION['msg'] ?? '';
+unset($_SESSION['msg']);
 ?>
 
 <!DOCTYPE html>
@@ -55,9 +60,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <h1>ZOO</h1>
-    <div class="message">
-        <?= $message ?>
-    </div>
+    <?php if (!empty($message)) : ?>
+        <div class="message">
+            <?= $message ?>
+        </div>
+    <?php endif ?>
     <ul>
         <?php if (!empty($animals)) : ?>
             <?php foreach ($animals as $animal) : ?>
