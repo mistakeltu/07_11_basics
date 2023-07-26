@@ -29,7 +29,7 @@ require __DIR__ . '/top.php';
             <?= $color['name'] ?>
         </div>
         <div class="buttons">
-            <form action="<? URL ?>destroy.php?id=<?= $color['id'] ?>" method="post">
+            <form action="<?= URL ?>destroy.php?id=<?= $color['id'] ?>" method="post">
                 <button type="submit" class="red">Delete</button>
             </form>
             <a class="green" href="<?= URL ?>list.php">No, go back!</a>

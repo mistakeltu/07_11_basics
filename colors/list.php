@@ -3,6 +3,7 @@ require __DIR__ . '/bootstrap.php';
 $title = 'Colors - Colors List';
 require __DIR__ . '/top.php';
 ?>
+<?php require __DIR__ . '/msg.php' ?>
 <?php require __DIR__ . '/menu.php' ?>
 
 <div class="list">
