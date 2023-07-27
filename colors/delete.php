@@ -25,7 +25,8 @@ require __DIR__ . '/top.php';
 <div class="delete">
     <div class="confirm-delete confirm">
         <h3>Are you want to delete this color?</h3>
-        <div class="color" style="background-color: <?= $color['hex'] ?>;">
+        <h6><?= $color['name'] ?></h6>
+        <div class="color" style="background-color: <?= $color['hex'] ?>">
             <?= $color['name'] ?>
         </div>
         <div class="buttons">

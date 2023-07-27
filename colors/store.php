@@ -2,7 +2,7 @@
 require __DIR__ . '/bootstrap.php';
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-    http_response_code(405); //Method not allowed
+    http_response_code(405);    // Method Not Allowed
     die;
 }
 
@@ -21,7 +21,7 @@ if ($hex == '' || $name == '') {
 
 if (strlen($name) < 3) {
     $_SESSION['message'] = [
-        'text' => 'Name must be at least 3 characters long!!',
+        'text' => 'Name must be at least 4 characters long!',
         'type' => 'crimson'
     ];
     $_SESSION['old_values'] = $_POST;
@@ -34,11 +34,13 @@ $colors = json_decode(file_get_contents(__DIR__ . '/colors.json'), 1);
 $color = [
     'id' => uniqid(),
     'name' => $name,
-    'hex' => $hex
+    'hex' => $hex,
+    'title' => getColorName($hex)
 ];
 
 $colors[] = $color;
 file_put_contents(__DIR__ . '/colors.json', json_encode($colors));
+
 
 $_SESSION['message'] = [
     'text' => 'Color created!',

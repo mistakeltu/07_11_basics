@@ -1,10 +1,15 @@
 <?php
+
+require __DIR__ . '/api.php';
+
 $colors = [];
-foreach (range(1, 17) as $number) {
+foreach (range(1, 9) as $number) {
+    $hex =  sprintf('#%02X%02X%02X', mt_rand(0, 255), mt_rand(0, 255), mt_rand(0, 255));
     $colors[] = [
         'id' => uniqid(),
         'name' => 'Color ' . $number,
-        'hex' => sprintf('#%02X%02X%02X', mt_rand(0, 255), mt_rand(0, 255), mt_rand(0, 255))
+        'hex' => $hex,
+        'title' => getColorName($hex)
     ];
 }
 

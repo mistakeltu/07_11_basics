@@ -61,7 +61,6 @@ nav ul li a:hover {
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-  cursor: pointer;
 }
 
 .list .colors-list .color-bin {
@@ -174,4 +173,9 @@ a.green {
   align-items: center;
   margin: 10px 0;
   gap: 10px;
+}
+
+h6 {
+  margin: 0;
+  font-size: 18px;
 }
