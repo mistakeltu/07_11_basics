@@ -2,7 +2,7 @@
 require __DIR__ . '/bootstrap.php';
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-    http_response_code(405); //Method not allowed
+    http_response_code(405);    // Method Not Allowed
     die;
 }
 
@@ -14,7 +14,6 @@ if (!isset($_GET['id'])) {
 $colors = json_decode(file_get_contents(__DIR__ . '/colors.json'), 1);
 
 $find = false;
-
 foreach ($colors as $key => $c) {
     if ($c['id'] == $_GET['id']) {
         $find = true;

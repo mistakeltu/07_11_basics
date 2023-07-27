@@ -19,7 +19,7 @@ if ($hex == '' || $name == '') {
     die;
 }
 
-if (strlen($name) < 3) {
+if (strlen($name) < 4) {
     $_SESSION['message'] = [
         'text' => 'Name must be at least 4 characters long!',
         'type' => 'crimson'
