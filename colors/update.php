@@ -20,7 +20,7 @@ if ($hex == '' || $name == '') {
         'type' => 'crimson'
     ];
     $_SESSION['old_values'] = $_POST;
-    header('Location: ' . URL . 'edit.php');
+    header('Location: ' . URL . 'edit.php?id=' . $_GET['id'] . '');
     die;
 }
 
@@ -30,7 +30,7 @@ if (strlen($name) < 3) {
         'type' => 'crimson'
     ];
     $_SESSION['old_values'] = $_POST;
-    header('Location: ' . URL . 'edit.php');
+    header('Location: ' . URL . 'edit.php?id=' . $_GET['id'] . '');
     die;
 }
 
